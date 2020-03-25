@@ -1,0 +1,30 @@
+{
+"builders": [
+
+    {
+  "type": "openstack",
+  "tenant_id": "<TenantID>",
+  "ssh_keypair_name":"<KeyName",
+  "ssh_private_key_file":"</local/PrivateKey/Path>",
+  "username":"<OpenstackUsername>",
+  "password":"<OpenstackPassword>",
+  "region":"<OpentackTenantRegion>",
+  "domain_name":"<OpenstackDomainName>",
+  "ssh_username": "centos",
+  "image_name": "<ImageName>",
+  "source_image": "<SourceImageID>",
+  "flavor": "<VM-flavour>",
+  "networks":"<NetworkID>",
+  "security_groups":"default"
+    }
+],
+ "provisioners": [
+                  {
+          "type": "shell",
+          "execute_command":"sudo {{.Path}}",
+          "scripts":"setupLogScreen.sh"
+      }
+    ]    
+ }
+
+

@@ -110,23 +110,22 @@ Path for tools install.
 
 ``export_dir``: "/export"
 
-Usage
------
+Usage with Packer
+-----------------
 
-After the script configuration run:
-```
-/bin/bash setup.sh
-```
+- Create an Ubuntu VM on the Openstack tenant minimum requirements (1vcpu, 2Gb RAM, storage 20 Gb)
+- Install [Packer] (https://packer.io/intro/getting-started/install.html) and move the binary to `/usr/bin`
+- Install [openstack-cli] (https://docs.openstack.org/newton/user-guide/common/cli-install-openstack-command-line-clients.html)
+- Git clone this repository
+- Add `export OS_AUTH_URL=https://<keystoneendpoint>:5000/v3` to `~/.bashrc` and `source ~/.bashrc`
+- Open `TestPackerGalaxy.json` and configure it with the variables are present on your `openrc.sh`
+- Configure `setupLogScreen.sh` as explained in Setup script section
+- Run the packer script `packer build TestPackerGalaxy.json`
+- The image will be added to Glance
 
-The Galaxy tool_deps images are in ``/export`` directory.
-
-Finally, the image can be cleaned using the clean_instance script:
-
-```
-/bin/bash /tmp/clean_instance.sh
-```
 
 Author
 ------
 
-Tangaro Marco: ma.tangaro@ibiom.cnr.it
+setup script: Tangaro Marco: ma.tangaro@ibiom.cnr.it
+Packer implementation: Mandreoli Pietro: pietro.mandreoli@unimi.it
