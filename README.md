@@ -117,17 +117,29 @@ json variables
 --------------
 
 ``tenant_id``: your tenant id on openstack
+
 ``ssh_keypair_name``: ssh_keypair_name present in openstack
+
 ``ssh_private_key_file``: path to the private key on the packerVM
+
 ``username``: openstack username 
+
 ``password``: openstack password
+
 ``region``: openstack region
+
 ``domain_name``: openstack domain name (if your openstack installation use domain, if not omit it)
+
 ``ssh_username``: user of the Vm that will be used to create the image
+
 ``image_name``: chose a name for your immage
+
 ``source_image``: image ID of the base image present on openstack
+
 ``vm_flavour``: flavor of the vm that will be deployed
+
 ``networks``: openstack network ID (has to be the same of packer VM )
+
 ``security_groups": name of the security group (port 22 has to be open to allow ssh protocol)
 
 Procedure
