@@ -31,7 +31,7 @@
 # It is possibile to configure the path of the virtual environment and the Ansible version.
 # By default, since the INDIGO PaaS Orchestrator and the Infrastructure Manager, currently, are using ansible 2.2.1, the same version is used.
 ansible_venv=/tmp/myansible
-ANSIBLE_VERSION=2.2.1
+ANSIBLE_VERSION=2.3.3.0
 
 # Galaxycloud ansible roles branch.
 # This script exploits Laniakea ansible roles in INDIGO GitHub repository.
@@ -80,7 +80,7 @@ galaxy_version="release_19.05"
 # galaxy-GDC_Somatic_Variant
 # galaxy-rna-workbench
 # galaxy-epigen
-galaxy_flavor="galaxy-no-tools"
+galaxy_flavor="galaxy-rna-workbench"
 # Install a ssh public key on Galaxy and root user.
 # This key will be removed after Galaxy and tools installation.
 # See the galaxy playbook: https://raw.githubusercontent.com/Laniakea-elixir-it/laniakea-images/master/playbooks/galaxy.yml
@@ -101,16 +101,16 @@ echo "Start log: ${now}" &>>  $LOGFILE
 DISTNAME=''
 if [[ -r /etc/os-release ]]; then
     . /etc/os-release
-    echo $ID &>> $LOGFILE
+    echo $ID 
     if [ "$ID" = "ubuntu" ]; then
-      echo 'Distribution Ubuntu' &>> $LOGFILE
+      echo 'Distribution Ubuntu' 
       DISTNAME='ubuntu'
     else
-      echo 'Distribution: CentOS' &>> $LOGFILE
+      echo 'Distribution: CentOS' 
       DISTNAME='centos'
     fi
 else
-    echo "Not running a distribution with /etc/os-release available" &>> $LOGFILE
+    echo "Not running a distribution with /etc/os-release available" 
 fi
 
 #________________________________
@@ -286,8 +286,8 @@ function start_services(){
 #________________________________
 # Run playbook
 function run_playbook(){
-  echo "Download playbook" &>> $LOGFILE
-  echo "${repository_url}/playbooks/$playbook" &>> $LOGFILE 
+  echo "Download playbook" 
+  echo "${repository_url}/playbooks/$playbook"  
 
   wget ${repository_url}/playbooks/$playbook -O /tmp/playbook.yml
   
@@ -409,6 +409,7 @@ if $create_tool_deps_tar; then
   tar cvzf $galaxy_flavor.tar.gz tool_deps
 fi
 
-} &>> $LOGFILE
+} 
 
-echo 'End setup script' &>> $LOGFILE
+echo 'End setup script' 
+
