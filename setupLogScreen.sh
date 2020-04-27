@@ -80,7 +80,7 @@ galaxy_version="release_19.05"
 # galaxy-GDC_Somatic_Variant
 # galaxy-rna-workbench
 # galaxy-epigen
-galaxy_flavor="galaxy-rna-workbench"
+galaxy_flavor="galaxy-no-tools"
 # Install a ssh public key on Galaxy and root user.
 # This key will be removed after Galaxy and tools installation.
 # See the galaxy playbook: https://raw.githubusercontent.com/Laniakea-elixir-it/laniakea-images/master/playbooks/galaxy.yml
